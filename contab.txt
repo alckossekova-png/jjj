@@ -1,0 +1,6 @@
+ crontab.txt
+    # Запуск extract.py каждую минуту
+    * * * * * PGPASSWORD=$DB_PASSWORD python3 /app/extract.py >> /var/log/cron.log 2>&1
+    # Запуск transform.py каждые 5 минут
+    */5 * * * * PGPASSWORD=$DB_PASSWORD python3 /app/transform.py >> /var/log/cron.log 2>&1
+    # Обязательная пустая строка в конце cron-файла
